@@ -20,7 +20,7 @@ namespace App1.Application.Tools
         /// um conjunto de 32 caracteres (8 * 32 = 256bits)    
         /// A chave é: "Criptografias com Rijndael / AES"     
         /// </summary>     
-        private const string cryptoKey = "A40233DE10A9F523A3B50CFB1FCF2DF7";
+        private const string cryptoKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
         //Ltmcj1G0LYvDDqQQV1rMgw==
 
