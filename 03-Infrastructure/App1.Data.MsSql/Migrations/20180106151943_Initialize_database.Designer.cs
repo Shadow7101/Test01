@@ -11,7 +11,7 @@ using System;
 namespace App1.Data.MsSql.Migrations
 {
     [DbContext(typeof(App1DbContext))]
-    [Migration("20180106044900_Initialize_database")]
+    [Migration("20180106151943_Initialize_database")]
     partial class Initialize_database
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,8 +51,8 @@ namespace App1.Data.MsSql.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(120);
+                    b.Property<string>("Data")
+                        .HasMaxLength(300);
 
                     b.Property<byte>("LogTypeId");
 

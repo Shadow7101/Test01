@@ -50,8 +50,8 @@ namespace App1.Data.MsSql.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(120);
+                    b.Property<string>("Data")
+                        .HasMaxLength(300);
 
                     b.Property<byte>("LogTypeId");
 

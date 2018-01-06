@@ -20,7 +20,7 @@ namespace App1.Data.MsSql.Map
                 .HasColumnName("LogId")
                 .IsRequired();
 
-            builder.Property(p => p.Email).HasMaxLength(120);
+            builder.Property(p => p.Data).HasMaxLength(300);
 
             builder.Property(p => p.CreatedBy);
 

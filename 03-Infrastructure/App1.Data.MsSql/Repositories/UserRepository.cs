@@ -14,7 +14,7 @@ namespace App1.Data.MsSql.Repositories
         {
             if (!_context.Role.Any())
             {
-                string[] itens = new string[] { "FLORISTA", "MODELO", "GERENTE", "MODERADOR", "SUPORTE", "DESENVOLVEDOR" };
+                string[] itens = new string[] { "Usuário", "Consultor de vendas", "Gerente de vendas", "Diretor", "Coordenador de vendas", "Analista de suporte", "Desenvolvedor" };
                 byte id = 0;
                 foreach (string item in itens)
                 {
@@ -26,7 +26,7 @@ namespace App1.Data.MsSql.Repositories
 
             if (!_context.Gender.Any())
             {
-                string[] itens = new string[] { "Não informar", "Não definido", "Homem hétero", "Mulher hétero", "Homem bissexual", "Homen homossexual", "Travesti / Transformista", "Mulher bissexual", "Mulher homossexual" };
+                string[] itens = new string[] { "Não informar", "Masculino", "Feminino"};
                 byte id = 0;
                 foreach (string item in itens)
                 {
@@ -71,7 +71,7 @@ namespace App1.Data.MsSql.Repositories
 
         public User Insert(RegisterViewModel model)
         {
-            Role role = _context.Role.Where(x => x.Name == "FLORISTA").FirstOrDefault();
+            Role role = _context.Role.OrderBy(x => x.Id).First();
 
             User user = new User();
             user.Email = model.Email;

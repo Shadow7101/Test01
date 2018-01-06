@@ -66,7 +66,7 @@ namespace App1.Data.MsSql.Migrations
                     CreatedBy = table.Column<Guid>(nullable: true),
                     CreatedIp = table.Column<string>(maxLength: 30, nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Email = table.Column<string>(maxLength: 120, nullable: true),
+                    Data = table.Column<string>(maxLength: 300, nullable: true),
                     LogTypeId = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>

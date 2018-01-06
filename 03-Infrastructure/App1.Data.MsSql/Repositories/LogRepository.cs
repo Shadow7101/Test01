@@ -38,8 +38,16 @@ namespace App1.Data.MsSql.Repositories
             Insert(UserId, ip, null, "Validação de e-mail pendente!");
         }
 
+        public void UserCreatedWithSuccess(Guid UserId, string ip)
+        {
+            Insert(UserId, ip, null, "Usuário criado com exito!");
+        }
+        public void UnexpectedError(Guid UserId, string ip, string message)
+        {
+            Insert(UserId, ip, message, "Ocorreu um erro inesperado!");
+        }
         #region | Métodos privados
-        private void Insert(Guid UserId, string ip, string email, string typeName)
+        private void Insert(Guid UserId, string ip, string Data, string typeName)
         {
             LogType tipo = LogType(typeName);
             Log log = new Log()
@@ -51,8 +59,8 @@ namespace App1.Data.MsSql.Repositories
 
             if (!Guid.Empty.Equals(UserId))
                 log.CreatedBy = UserId;
-            if (!string.IsNullOrEmpty(email))
-                log.Email = email;
+            if (!string.IsNullOrEmpty(Data))
+                log.Data = Data;
 
             _context.Log.Add(log);
             _context.SaveChanges();
