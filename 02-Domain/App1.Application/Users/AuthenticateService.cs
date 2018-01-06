@@ -1,6 +1,5 @@
 using System;
 using App1.Application.JWT;
-using App1.Application.Tools;
 using App1.Domain.Entities;
 using App1.Domain.Repositories;
 using App1.Domain.Services;

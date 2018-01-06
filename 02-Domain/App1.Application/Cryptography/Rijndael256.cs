@@ -5,9 +5,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace App1.Application.Tools
+namespace App1.Application.Cryptography
 {
-    public class CriptografiaSimetrica01: ICryptography
+    public class Rijndael256: ICryptography
     {
         /// <summary>     
         /// Representação de valor em base 64 (Chave Interna)    
@@ -19,9 +19,12 @@ namespace App1.Application.Tools
         //Ltmcj1G0LYvDDqQQV1rMgw==
 
 
-        public CriptografiaSimetrica01(IConfiguration configuration)
+        public Rijndael256(IConfiguration configuration)
         {
             CryptoKey = configuration["Cryptography:CryptoKey"];
+
+            if(string.IsNullOrEmpty(CryptoKey))
+                CryptoKey = "Ltmcj1G0LYvDDqQQV1rMgw";
         }
 
         /// <summary>     
