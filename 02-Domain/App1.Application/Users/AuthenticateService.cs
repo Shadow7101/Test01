@@ -8,22 +8,25 @@ using App1.Domain.ViewModel;
 
 namespace App1.Application.Users
 {
-    public class AuthenticateService: IAuthenticateService
+    public class AuthenticateService : IAuthenticateService
     {
-       private readonly IUserRepository userRepository;     
-       private readonly ILogRepository logRepository;
-       private readonly ITokenRepository tokenRepository;
-        public AuthenticateService(IUserRepository uRepository, ILogRepository lrepository, ITokenRepository trepository)
+        private readonly IUserRepository userRepository;
+        private readonly ILogRepository logRepository;
+        private readonly ITokenRepository tokenRepository;
+        private readonly ICryptography cryptography;
+
+        public AuthenticateService(IUserRepository uRepository, ILogRepository lrepository, ITokenRepository trepository, ICryptography crypto)
         {
             this.userRepository = uRepository;
             this.logRepository = lrepository;
             this.tokenRepository = trepository;
+            this.cryptography = crypto;
         }
 
         public ResultViewModel Authenticate(LoginFormVIewModel model)
         {
             //checando se o modelo é válido
-            if(!model.IsValid)
+            if (!model.IsValid)
             {
                 return new ResultViewModel()
                 {
@@ -33,14 +36,14 @@ namespace App1.Application.Users
                 };
             }
 
-           //criptografando senha
-           model.Password = CriptografiaSimetrica01.Encrypt(model.Password);     
+            //criptografando senha
+            model.Password = cryptography.Encrypt(model.Password);
 
             //recuperando dados do usuário
             User user = userRepository.FindByEmail(model.Email);
 
             //checando se o usuário foi encontrado
-            if(user==null)
+            if (user == null)
             {
                 //registra log
                 logRepository.InsertWrongUser(model.Email, model.Ip);
@@ -50,11 +53,11 @@ namespace App1.Application.Users
                     Success = false,
                     Message = "Nome de usuário ou senha incorretos!",
                     Data = 0
-                };                
+                };
             }
 
             //checando se a senha esta correta
-            if(!model.Password.Equals(user.Password))
+            if (!model.Password.Equals(user.Password))
             {
                 //registra log
                 logRepository.InsertWrongPassword(user.Id, model.Ip);
@@ -68,7 +71,7 @@ namespace App1.Application.Users
             }
 
             //checando se o e-mail do usuário foi validado
-            if(!user.EmailValidaded)
+            if (!user.EmailValidaded)
             {
                 logRepository.ValidateEmailError(user.Id, model.Ip);
                 //retornado resultado para a camada superior    
@@ -77,11 +80,11 @@ namespace App1.Application.Users
                     Success = false,
                     Message = "Seu endereço de e-mail ainda não foi validado, cheque seu e-mail, encontre a mensagem que enviamos e clique no link!",
                     Data = 2
-                };                
+                };
             }
 
             //usuário bloqueado
-            if(user.Deleted || user.Bloqued || user.Banned)
+            if (user.Deleted || user.Bloqued || user.Banned)
             {
                 //registra log
                 logRepository.InsertBloquedUser(user.Id, model.Ip);
@@ -96,7 +99,7 @@ namespace App1.Application.Users
 
             //criando token de autenticação
             string tokenValue = Jwt_GenerateToken(user.Email, user.Id, user.Role.Name);
-            Guid TokenId = tokenRepository.InsertAccess(UserId: user.Id,TokenValue: tokenValue,Ip: model.Ip, Validate: 60);
+            Guid TokenId = tokenRepository.InsertAccess(UserId: user.Id, TokenValue: tokenValue, Ip: model.Ip, Validate: 60);
             LoginResultViewModel loginResult = new LoginResultViewModel()
             {
                 TokenId = TokenId,
@@ -111,7 +114,7 @@ namespace App1.Application.Users
             logRepository.InsertSuccessLogin(user.Id, model.Ip);
 
             return new ResultViewModel()
-            {   
+            {
                 Success = true,
                 Message = "Login com sucesso!",
                 Data = loginResult
@@ -130,7 +133,7 @@ namespace App1.Application.Users
                 .AddExpiryInMinutes(30)
                 .Builder();
 
-            return token.value;          
+            return token.value;
         }
     }
 }

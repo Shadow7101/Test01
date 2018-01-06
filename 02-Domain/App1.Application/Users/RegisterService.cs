@@ -12,12 +12,14 @@ namespace App1.Application.Users
        private readonly IUserRepository userRepository;     
        private readonly ITokenRepository tokenRepository;
        private readonly ISendMail sendMail;
+        private readonly ICryptography cryptography;
 
-        public RegisterService(IUserRepository uRepository,  ITokenRepository trepository, ISendMail mail)
+        public RegisterService(IUserRepository uRepository,  ITokenRepository trepository, ISendMail mail, ICryptography Cryptography)
         {
             this.userRepository = uRepository;
             this.tokenRepository = trepository;
             this.sendMail = mail;
+            this.cryptography = Cryptography;
         }
 
         public Item[] Genders()
@@ -93,7 +95,7 @@ namespace App1.Application.Users
             }
 
            //criptografando senha
-           model.Password = CriptografiaSimetrica01.Encrypt(model.Password);     
+           model.Password = cryptography.Encrypt(model.Password);     
 
            //registrando usuario 
            user = userRepository.Insert(model);

@@ -7,27 +7,23 @@ using Microsoft.Extensions.Configuration;
 
 namespace App1.Application.Email
 {
-    internal class GmailEmailService : IEmailService
+    public class GmailEmailService : IEmailService
     {
-        private readonly IConfigurationSection applicationUrl;
+        private readonly IConfiguration _configuration;
         private readonly SmtpConfiguration _config;
-
 
         public GmailEmailService(IConfiguration configuration)
         {
-            this.applicationUrl = configuration.GetSection("emailConfiguration");
-            _config = new SmtpConfiguration();
-            var gmailUserName = "xxxxxx@xxxxx.com";
-            var gmailPassword = "xxxxxxxxxxxxxxx";
-            var gmailHost = "smtp.gmail.com";
-            var gmailPort = 587;
-            var gmailSsl = true;
-            _config.Username = gmailUserName;
-            _config.Password = gmailPassword;
-            _config.Host = gmailHost;
-            _config.Port = gmailPort;
-            _config.Ssl = gmailSsl;
-
+            this._configuration = configuration;
+            this._config = new SmtpConfiguration
+            {
+                ApplicationUrl = configuration["SmtpConfiguration:ApplicationUrl"],
+                Username = configuration["SmtpConfiguration:Username"],
+                Password = configuration["SmtpConfiguration:Password"],
+                Host = configuration["SmtpConfiguration:Host"],
+                Port = int.Parse(configuration["SmtpConfiguration:Port"]),
+                Ssl = bool.Parse(configuration["SmtpConfiguration:Ssl"])
+            };
         }
 
         public void SendEmailMessage(MailMessage message)

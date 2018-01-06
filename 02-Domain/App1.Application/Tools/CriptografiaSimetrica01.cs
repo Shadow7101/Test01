@@ -1,35 +1,40 @@
-﻿using System;
+﻿using App1.Domain.Services;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace App1.Application.Tools
 {
-    public class CriptografiaSimetrica01
+    public class CriptografiaSimetrica01: ICryptography
     {
-        /// <summary>     
-        /// Vetor de bytes utilizados para a criptografia (Chave Externa)     
-        /// </summary>     
-        private static byte[] bIV =
-{ 0x50, 0x08, 0xF1, 0xDD, 0xDE, 0x3C, 0xF2, 0x18,
-0x44, 0x74, 0x19, 0x2C, 0x53, 0x49, 0xAB, 0xBC };
-
         /// <summary>     
         /// Representação de valor em base 64 (Chave Interna)    
         /// O Valor representa a transformação para base64 de     
         /// um conjunto de 32 caracteres (8 * 32 = 256bits)    
         /// A chave é: "Criptografias com Rijndael / AES"     
         /// </summary>     
-        private const string cryptoKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
+        private readonly string CryptoKey;
         //Ltmcj1G0LYvDDqQQV1rMgw==
+
+
+        public CriptografiaSimetrica01(IConfiguration configuration)
+        {
+            CryptoKey = configuration["Cryptography:CryptoKey"];
+        }
+
+        /// <summary>     
+        /// Vetor de bytes utilizados para a criptografia (Chave Externa)     
+        /// </summary>     
+        private byte[] bIV = { 0x50, 0x08, 0xF1, 0xDD, 0xDE, 0x3C, 0xF2, 0x18, 0x44, 0x74, 0x19, 0x2C, 0x53, 0x49, 0xAB, 0xBC };
 
         /// <summary>     
         /// Metodo de criptografia de valor     
         /// </summary>     
         /// <param name="text">valor a ser criptografado</param>     
         /// <returns>valor criptografado</returns>
-        public static string Encrypt(string text)
+        public string Encrypt(string text)
         {
             try
             {
@@ -37,7 +42,7 @@ namespace App1.Application.Tools
                 if (!string.IsNullOrEmpty(text))
                 {
                     // Cria instancias de vetores de bytes com as chaves                
-                    byte[] bKey = Convert.FromBase64String(cryptoKey);
+                    byte[] bKey = Convert.FromBase64String(CryptoKey);
                     byte[] bText = new UTF8Encoding().GetBytes(text);
 
                     // Instancia a classe de criptografia Rijndael
@@ -81,7 +86,7 @@ namespace App1.Application.Tools
         /// </summary>     
         /// <param name="text">texto criptografado</param>     
         /// <returns>valor descriptografado</returns>     
-        public static string Decrypt(string text)
+        public string Decrypt(string text)
         {
             try
             {
@@ -89,7 +94,7 @@ namespace App1.Application.Tools
                 if (!string.IsNullOrEmpty(text))
                 {
                     // Cria instancias de vetores de bytes com as chaves                
-                    byte[] bKey = Convert.FromBase64String(cryptoKey);
+                    byte[] bKey = Convert.FromBase64String(CryptoKey);
                     byte[] bText = Convert.FromBase64String(text);
 
                     // Instancia a classe de criptografia Rijndael                

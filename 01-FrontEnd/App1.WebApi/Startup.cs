@@ -17,6 +17,7 @@ using App1.Domain.Repositories;
 using App1.Data.MsSql.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
+using App1.Application.Tools;
 
 namespace App1.WebApi
 {
@@ -41,6 +42,8 @@ namespace App1.WebApi
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<IRememberService, RememberService>();
             services.AddTransient<ISendMail, SendMail>();
+            services.AddTransient<IEmailService, GmailEmailService>();
+            services.AddTransient<ICryptography, CriptografiaSimetrica01>();
 
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<ITokenRepository, TokenRepository>();
