@@ -1,0 +1,10 @@
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\bin\Debug\netstandard2.0\App1.Data.MsSql.deps.json
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\bin\Debug\netstandard2.0\App1.Data.MsSql.dll
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\bin\Debug\netstandard2.0\App1.Data.MsSql.pdb
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\obj\Debug\netstandard2.0\App1.Data.MsSql.csproj.CoreCompileInputs.cache
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\obj\Debug\netstandard2.0\App1.Data.MsSql.AssemblyInfoInputs.cache
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\obj\Debug\netstandard2.0\App1.Data.MsSql.AssemblyInfo.cs
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\obj\Debug\netstandard2.0\App1.Data.MsSql.dll
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\obj\Debug\netstandard2.0\App1.Data.MsSql.pdb
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\bin\Debug\netstandard2.0\App1.Domain.dll
+D:\Documents\SourceCode\App1\03-Infrastructure\App1.Data.MsSql\bin\Debug\netstandard2.0\App1.Domain.pdb

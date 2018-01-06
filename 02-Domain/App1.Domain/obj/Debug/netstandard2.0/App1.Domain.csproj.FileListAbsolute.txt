@@ -1,0 +1,8 @@
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\bin\Debug\netstandard2.0\App1.Domain.deps.json
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\bin\Debug\netstandard2.0\App1.Domain.dll
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\bin\Debug\netstandard2.0\App1.Domain.pdb
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\obj\Debug\netstandard2.0\App1.Domain.csproj.CoreCompileInputs.cache
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\obj\Debug\netstandard2.0\App1.Domain.AssemblyInfoInputs.cache
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\obj\Debug\netstandard2.0\App1.Domain.AssemblyInfo.cs
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\obj\Debug\netstandard2.0\App1.Domain.dll
+D:\Documents\SourceCode\App1\02-Domain\App1.Domain\obj\Debug\netstandard2.0\App1.Domain.pdb

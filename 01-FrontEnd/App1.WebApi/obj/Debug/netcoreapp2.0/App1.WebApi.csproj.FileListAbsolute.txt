@@ -1,0 +1,16 @@
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.WebApi.deps.json
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.WebApi.runtimeconfig.json
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.WebApi.runtimeconfig.dev.json
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.WebApi.dll
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.WebApi.pdb
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\obj\Debug\netcoreapp2.0\App1.WebApi.csproj.CoreCompileInputs.cache
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\obj\Debug\netcoreapp2.0\App1.WebApi.AssemblyInfoInputs.cache
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\obj\Debug\netcoreapp2.0\App1.WebApi.AssemblyInfo.cs
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\obj\Debug\netcoreapp2.0\App1.WebApi.dll
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\obj\Debug\netcoreapp2.0\App1.WebApi.pdb
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Application.dll
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Data.MsSql.dll
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Domain.dll
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Application.pdb
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Domain.pdb
+D:\Documents\SourceCode\App1\01-FrontEnd\App1.WebApi\bin\Debug\netcoreapp2.0\App1.Data.MsSql.pdb
