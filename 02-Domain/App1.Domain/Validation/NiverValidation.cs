@@ -42,7 +42,7 @@ namespace App1.Domain.Validation
                 int Hours = Now.Subtract(PastYearDate).Hours;  
                 int Minutes = Now.Subtract(PastYearDate).Minutes;  
                 int Seconds = Now.Subtract(PastYearDate).Seconds;  
-                Console.WriteLine( String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)",  Years, Months, Days, Hours, Seconds));
+                //Console.WriteLine( String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)",  Years, Months, Days, Hours, Seconds));
                 return Years;
             }
         }

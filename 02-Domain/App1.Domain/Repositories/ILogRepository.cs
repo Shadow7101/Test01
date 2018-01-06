@@ -9,5 +9,8 @@ namespace App1.Domain.Repositories
         void InsertBloquedUser(Guid UserId, string ip);
         void InsertSuccessLogin(Guid UserId, string ip);
         void ValidateEmailError(Guid UserId, string ip);
+        void UserCreatedWithSuccess(Guid UserId, string ip);
+        void UnexpectedError(Guid UserId, string ip, string message);
+
     }
 }
