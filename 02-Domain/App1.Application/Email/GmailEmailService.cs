@@ -17,8 +17,8 @@ namespace App1.Application.Email
         {
             this.applicationUrl = configuration.GetSection("emailConfiguration");
             _config = new SmtpConfiguration();
-            var gmailUserName = "xxxx@xxxx.com";
-            var gmailPassword = "xxxxxxxxxxxx";
+            var gmailUserName = "xxxxxx@xxxxx.com";
+            var gmailPassword = "xxxxxxxxxxxxxxx";
             var gmailHost = "smtp.gmail.com";
             var gmailPort = 587;
             var gmailSsl = true;
