@@ -1,27 +1,33 @@
-<div class="card card-login mx-auto mt-5">
-    <div class="card-header">Login</div>
-    <div class="card-body">
-        <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember Password
-                    </label>
+<div class="row">
+    <div class="col-12">
+
+        <!--login form-->
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form id="Form1" name="Form1" ng-submit="Login(model)">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço de e-mail</label>
+                        <input ng-model="model.email" ng-required="true" class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Endereço de e-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha de acesso</label>
+                        <input ng-model="model.password" ng-required="true" class="form-control" id="exampleInputPassword1" type="password" placeholder="Senha de acesso">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login" />
+                </form>
+                <div class="text-center">
+                    <a class="d-block small mt-3" ng-href="#!/register">Register an Account</a>
+                    <a class="d-block small" ng-href="#!/forgot-password">Forgot Password?</a>
                 </div>
             </div>
-            <a class="btn btn-primary btn-block" href="index.html">Login</a>
-        </form>
-        <div class="text-center">
-            <a class="d-block small mt-3" ng-href="#!/register">Register an Account</a>
-            <a class="d-block small" ng-href="#!/forgot-password">Forgot Password?</a>
         </div>
+
+        <!--erro no login-->
+        <div ng-show="ErroNoLogin" class="text-center">
+            <h5 style="color:red;">Ocorreu um erro</h5>
+            <p style="color:brown;font-weight: bold;">{{ErroNoLoginMessage}}</h6>
+        </div>
+
     </div>
 </div>

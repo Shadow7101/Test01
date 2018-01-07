@@ -1,40 +1,65 @@
-<div class="card card-register mx-auto mt-5">
-    <div class="card-header">Register an Account</div>
-    <div class="card-body">
-        <form>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="exampleInputName">First name</label>
-                        <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Register an Account</div>
+            <div class="card-body">
+                <form ng-show="!CadastroSucesso" id="Form1" name="Form1" ng-submit="Register(model)">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="fullname">Nome completo</label>
+                                <input ng-model="model.name" ng-required="true" class="form-control" id="fullname" type="text" placeholder="Nome completo" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Endereço de e-mail</label>
+                                <input ng-model="model.email" ng-required="true" class="form-control" id="email" type="email" placeholder="Endereço de e-mail" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="exampleInputLastName">Last name</label>
-                        <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="birthdate">Data de nascimento</label>
+                                <input ng-model="model.birthdate" ng-required="true" class="form-control" id="birthdate" type="date" placeholder="Data de nascimento" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender">Sexo</label>
+                                <select id="gender" class="form-control" ng-model="model.gender1" ng-required="true"
+                                        ng-options="gender.name for gender in genders"></select>
+                            </div>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="Password">Senha de acesso</label>
+                                <input ng-model="model.password" ng-required="true" class="form-control" id="Password" type="password" placeholder="Senha de acesso">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="PasswordConfirmar">Confirmar senha de acesso</label>
+                                <input ng-model="model.PasswordConfirmar" ng-required="true" class="form-control" id="PasswordConfirmar" type="password" placeholder="Confirmar senha de acesso">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Salvar cadastro" class="btn btn-primary btn-block" />
+                </form>
+
+                <div ng-show="CadastroSucesso" class="text-center">
+                    <h5>Seu cadastro foi salvo com exito!</h5>
+                    <h6>Um e-mail foi enviado para seu endereço eletronico, clique no link desse e-mail para validar seu cadastro</h6>
+                </div>
+
+                <div ng-show="ErroNoCadastro" class="text-center">
+                    <h5 style="color:red;">Ocorreu um erro</h5>
+                    <p style="color:brown;font-weight: bold;">{{ErroNoCadastroMessage}}</h6>
+                </div>
+
+                <div class="text-center">
+                    <a class="d-block small mt-3" ng-href="#!/login">Login Page</a>
+                    <a class="d-block small" ng-href="#!/forgot-password">Forgot Password?</a>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="exampleConfirmPassword">Confirm password</label>
-                        <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
-                    </div>
-                </div>
-            </div>
-            <a class="btn btn-primary btn-block" ng-href="#!/login">Register</a>
-        </form>
-        <div class="text-center">
-            <a class="d-block small mt-3" ng-href="#!/login">Login Page</a>
-            <a class="d-block small" ng-href="#!/forgot-password">Forgot Password?</a>
         </div>
     </div>
 </div>
